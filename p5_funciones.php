@@ -8,7 +8,19 @@ function mostrardatos($nombre,$apellido,$curso,$semestre){
     return $mensaje;
 }
 
+function calcular($operador,$numero1,$numero2){
+    if($operador=="+")
+    return $numero1+$numero2;
+    if($operador=="-")
+    return $numero1-$numero2;
+    if($operador=="*")
+    return $numero1*$numero2;
+    if($operador=="/")
+    return $numero1/$numero2;
+}
+
 echo obtenersaludo("julio")."\n";
-echo mostrardatos("julio","lizandro","backed developper web","3er semestre");
+echo mostrardatos("julio","lizandro","backed developper web","3er semestre")."\n";
+echo "el total de la suma es : ".calcular("+",10,34);
 
 ?>
