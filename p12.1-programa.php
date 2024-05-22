@@ -11,6 +11,7 @@ echo "********** DIVIDIR (OPCION 4)          **********\n";
 echo "********** POTENCIA (OPCION 5)         **********\n";
 echo "********** RAIZ (OPCION 6)             **********\n";
 echo "********** SALIR (OPCION 0)            **********\n";
+echo "ingrese una opcion :";
 $opcion = fgets(STDIN);
 switch ($opcion){
     case 1:
