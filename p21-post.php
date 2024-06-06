@@ -22,12 +22,14 @@ $Fatiga = $Fatiga == "" ? "0": $Fatiga;
 $Garraspera = array_key_exists("Garraspera", $_POST) ? $_POST['Garraspera']: "0";
 $Garraspera = $Garraspera == "" ? "0": $Garraspera;
 $fecha = $_POST["fecha"];
+$grupo_sanguineo = array_key_exists("grupo_sanguineo", $_POST) ? $_POST['grupo_sanguineo']: "0";
+$grupo_sanguineo = $grupo_sanguineo == "" ? "0": $grupo_sanguineo;
 
 if(empty($nombre) || empty($apellido) || empty($edad) || empty($talla) || empty($peso)){
     echo "todos los campos son obligatorios";
 }
 if ($tos== 1 || $fiebre== 1 || $disnea==1 || $dolor_muscular==1 ||
-$gripe == 1 || $Presion_alta==1 || $Fatiga==1 || $Garraspera==1) {
+$gripe == 1 || $Presion_alta==1 || $Fatiga==1 || $Garraspera==1 || $grupo_sanguineo==1) {
 $resultado = "1";
 }
 else {
@@ -41,14 +43,14 @@ $dbname = "covid";
 try{
     $conn = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
     $conn->beginTransaction();
-    $sql="INSERT INTO 'pacientes' ('nombres', 'apellidos',
-    'edad', 'talla_m', 'peso_kg', 'sintoma_tos' ,
-    'sintoma_fiebre', 'sintoma_disnea', 'sintoma_dolormuscular',
-    'sintoma_gripe', 'sintoma_presionalta', 'sintoma_fatiga',
-    'sintoma_garraspera', 'ultima_fecha_vacunacion', 'resultado') 
+    $sql="INSERT INTO pacientes (nombres, apellidos,
+    edad, talla_m, peso_kg, sintoma_tos ,
+    sintoma_fiebre, sintoma_disnea, sintoma_dolormuscular,
+    sintoma_gripe, sintoma_presionalta, sintoma_fatiga,
+    sintoma_garraspera, ultima_fecha_vacunacion, resultado , grupo_sanguineo) 
     VALUES ('$nombre', '$apellido', '$edad', '$talla', '$peso',
     '$tos', '$fiebre', '$disnea', '$dolor_muscular', '$gripe'
-    , '$Presion_alta', '$atiga', '$Garraspera', '$fecha', '$resultado');";
+    , '$Presion_alta', '$Fatiga', '$Garraspera', '$fecha', '$resultado','$grupo_sanguineo');";
 
 $conn->exec($sql);
 $conn->commit();
