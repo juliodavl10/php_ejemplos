@@ -31,23 +31,39 @@
     <script src="p25.1-ajax.js"></script>
  
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Nuevo Paciente
+    Nuevo Paciente
     </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Formulario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <h5 class="modal-title" id="exampleModalLabel">Formulario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="name" class="form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="name" name="name"/>
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre2" name="nombre2"/>
+                <label for="edad" class="form-label">Edad:</label>
+                <input type="text" class="form-control" id="edad" name="edad"/>
+                <label for="talla" class="form-label">Talla:</label>
+                <input type="text" class="form-control" id="talla_m" name="talla"/>
+                <label for="peso" class="form-label">Peso:</label>
+                <input type="text" class="form-control" id="peso_kg" name="peso"/>
+                <label for="tos" class="form-label">Tos:</label>
+                <input type="checkbox" class="form-check-input" id="sintoma_tos" name="tos"/>
+                <label for="fiebre" class="form-label">Fiebre:</label>
+                <input type="checkbox" class="form-check-input" id="sintoma_fiebre" name="fiebre"/>
+                <label for="disnea" class="form-label">Disnea:</label>
+                <input type="checkbox" class="form-check-input" id="sintoma_disnea" name="disnea"/><br>
+                <button type="button" class="btn-accept" onclick="actualizar();">Guardar</button>&nbsp;
+                <button type="button" class="btn-warning" onclick="cancelar();">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
+
+ 

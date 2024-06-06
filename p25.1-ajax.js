@@ -22,8 +22,6 @@ function buscarPacientes() {
  
     return;
 }
- 
- 
 function agregarFilas(id,paciente) {
     const html=
     "<tr>"+
@@ -34,7 +32,68 @@ function agregarFilas(id,paciente) {
     "<td>"+paciente.sintoma_tos+"</td>"+
     "<td>"+paciente.sintoma_fiebre+"</td>"+
     "<td>"+paciente.sintoma_disnea+"</td>"+
-    "<td><button type='button'>Editar</button></td>"+
+    "<td><button type='button'onclick=editar('"+paciente.nombres+"','"+paciente.edad+"','"+paciente.talla_m+"','"+paciente.peso_kg+"','"+paciente.sintoma_tos+"','"+paciente.sintoma_fiebre+"','"+paciente.sintoma_disnea+"');>Editar</button></td>"+
     "</tr>";
     $(id+" tr:last").after(html);
+}
+
+ 
+function editar(nombres,edad,talla_m,peso_kg,sintoma_tos,sintoma_fiebre,sintoma_disnea) {
+    $('#exampleModal').modal('show');    
+    $("#nombre2").val(nombres);
+    $("#edad2").val(edad);
+    $("#talla_m2").val(talla_m);
+    $("#peso_kg2").val(peso_kg);
+    if (sintoma_tos == 1) {
+ 
+        $('#nombre2').prop('checked', true);
+   
+      } else {
+   
+        $('#nombre2').prop('checked', false);
+   
+      }
+    if (sintoma_fiebre == 1) {
+ 
+        $('#sintoma_fiebre2').prop('checked', true);
+   
+      } else {
+   
+        $('#sintoma_fiebre2').prop('checked', false);
+   
+      }
+    if (sintoma_disnea == 1) {
+ 
+        $('#sintoma_disnea2').prop('checked', true);
+   
+      } else {
+   
+        $('#sintoma_disnea2').prop('checked', false);
+   
+      }
+}
+function actualizar() {
+    const $nombre = $("#nombre2").val();
+   
+    let datos ={
+        nombre : $nombre
+    };
+    $.ajax({
+        url :"p26.1-update-ajax-pdo.php",
+        type : "post",
+        data : datos,
+        success : function(result) {              
+            alert("Se guardo los datos correctamente de "+result);            
+        }
+    })
+ 
+ 
+    return;
+}
+ 
+function cancelar() {
+    $('#exampleModal').modal('hide');    
+}
+function eliminar(){
+
 }
